@@ -1,0 +1,71 @@
+@import './variables.scss';
+@mixin font-display-medium {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@mixin font-body-large-regular {
+    font-family: "Rubik", sans-serif;
+    font-size:12px;
+    line-height: 150%;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@mixin font-body-samllItalic {
+    font-family: "Rubik", sans-serif;
+    font-size:20px;
+    line-height: 150%;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
+    color: #626C7F;
+}
+@mixin font-body-small-regularItalic {
+    font-family: "Rubik", sans-serif;
+    font-style: italic;
+    font-size:20px;
+    line-height: 150%;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+@mixin font-heading-large-bold-medium {
+    font-family: "Rubik", sans-serif;
+    font-size:64px;
+    line-height: 100%;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: $darkNavy;
+}
+@mixin font-heading-large-bold-regular {
+    font-family: "Rubik", sans-serif;
+    font-size:64px;
+    line-height: 100%;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: $darkNavy;
+}
+@mixin font-heading-medium-bold-medium {
+    font-family: "Rubik", sans-serif;
+    font-size:36px;
+    line-height: 100%;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: $darkNavy;
+}
+@mixin font-heading-small-medium {
+    font-family: "Rubik", sans-serif;
+    font-size:28px;
+    line-height: 100%;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: $darkNavy;
+}

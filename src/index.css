@@ -1,0 +1,29 @@
+
+body {
+  margin: 0;
+  font-family: Rubik, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+:root {
+  --purple: #a729f5;
+  --Darknavy: #313e51;
+  --grey: #3b4d66;
+  --lightgrey: #626c7f;
+  --verylightgrey: #abc1e1;
+  --lightblue: #f4f6fa;
+  --verylightblue: #ffffff;
+  --green: #26d782;
+  --red: #ee5454;
+  --darkNavy: #313E51;
+  
+}
+
