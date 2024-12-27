@@ -27,7 +27,7 @@ const router = createBrowserRouter(
       element: <QuestionComp />,
     },
   ],
-  { basename: "/" }
+  { basename: "/app" }
 );
 
 // declare function RouterProvider(props: RouterProviderProps): React.ReactElement;
