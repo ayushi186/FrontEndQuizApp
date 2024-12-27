@@ -4,7 +4,9 @@ h1,ul {
   padding: 0;
 }
 .App {
+  margin: auto;
   text-align: center;
+  height: 100%;
 }
 
 .App-logo {
@@ -17,6 +19,13 @@ h1,ul {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+html, body, #app, #app>div {
+  height: 100%;
+}
+
+[data-reactroot] 
+        {height: 100% !important; }
 
 .App-header {
   background-color: #282c34;
@@ -56,5 +65,12 @@ h1{
 }
 .heading-medium{
   @include font-heading-medium-bold-medium;
+}
+
+.toogle{
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 111px;
 }
 

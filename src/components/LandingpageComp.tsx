@@ -1,27 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import quizzes from "../data.json";
-import img from "./assets/images/icon-html.svg";
+
 import QuestionsComp from "./QuestionsComp";
-import { useSelector } from "react-redux";
-import { type } from "os";
-import QuestionComp from "./QuestionComp";
+
+import { useContext } from "react";
+import { ThemeContext } from "./ThemeToggleContext";
 
 const Outerwrapper = styled.div`
-  height: 80%;
-  width: 90%;
+  height: 400px;
+  width: 100%;
   margin: auto;
   display: flex;
+  padding-top: 100px;
   //border: var(--green) solid 1px;
 `;
 
-const Equalinnerdiv = styled.div`
+const Equalinnerdiv = styled.div<{ theme: string }>`
   display: flex;
+  height: 100%;
   flex-direction: column;
   flex: 1;
   //border: var(--red) solid 1px;
   text-align: left;
   padding: 30px;
+  color: ${(props) => (props.theme === "dark" ? "white" : `var(--darkNavy)`)};
 `;
 
 const Unequalinnerdiv = styled.div`
@@ -30,17 +33,7 @@ const Unequalinnerdiv = styled.div`
   flex: 0.5;
   visibility: none;
 `;
-
-const Sectiongrid = styled.div`
-  flex: 1;
-  margin: 20px;
-  width: 564px;
-  height: 86px;
-  //border: var(--red) solid 1px;
-  border-radius: 5px;
-  background-color: var(--verylightblue);
-`;
-const HeaderText = styled.h1``;
+const HeaderText = styled.h1<{ theme: string }>``;
 
 type Tquestion = {
   title: string;
@@ -54,26 +47,20 @@ type Tquestions = {
   answer: string;
 };
 
-type props = {
-  data: Array<Tquestion>;
-};
-
-type TQuizzesData = {
-  quizzes: Array<Tquestion>;
-};
 export const LandingpageComp: React.FC = () => {
   const data: Array<Tquestion>[] = Object.values(quizzes);
+  const { theme } = useContext(ThemeContext);
 
   return (
     <Outerwrapper>
-      <Equalinnerdiv>
-        <Equalinnerdiv>
+      <Equalinnerdiv theme={theme}>
+        <Equalinnerdiv theme={theme}>
           <HeaderText>Welcome to the</HeaderText>
           <h1 className="h1-bold">Frontend Quiz!</h1>
         </Equalinnerdiv>
         <Unequalinnerdiv></Unequalinnerdiv>
       </Equalinnerdiv>
-      <Equalinnerdiv>
+      <Equalinnerdiv theme={theme}>
         <>
           {data[0].map((i: Tquestion, idx: number) => {
             return (

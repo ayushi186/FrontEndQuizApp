@@ -1,7 +1,6 @@
-import { type } from "os";
 import React from "react";
-import { styled, Styled } from "styled-components";
-import { ContainerStyles, FillerStyles, LabelStyles } from "./StyledComp";
+
+import { ContainerStyles, FillerStyles } from "./StyledComp";
 type Props = {
   bgcolor: string;
   completed: any;

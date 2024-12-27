@@ -1,13 +1,8 @@
-import React, {
-  BaseSyntheticEvent,
-  SyntheticEvent,
-  useRef,
-  useState,
-} from "react";
+import React, { SyntheticEvent, useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import ResultComp from "./ResultComp";
 import styled from "styled-components";
-import patternlight from "../assets/images/pattern-background-desktop-light.svg";
+
 import { useDispatch } from "react-redux";
 import { trackwronglyansweredquestion } from "../store/wrongandrightAnsweredReducer";
 import A from "../assets/images/A.svg";
@@ -18,11 +13,7 @@ import css from "../assets/images/icon-css.svg";
 import js from "../assets/images/icon-js.svg";
 import acc from "../assets/images/icon-accessibility.svg";
 
-interface IProps {
-  title: string;
-  icon: string;
-  questions: Array<Tquestions>;
-}
+import { ThemeContext } from "./ThemeToggleContext";
 
 export type Tquestions = {
   question: string;
@@ -30,28 +21,40 @@ export type Tquestions = {
   answer: string;
 };
 
-export const Container = styled.div<{ direction?: string }>`
+export const Container = styled.div<{ direction?: string; theme: string }>`
   height: 100vh;
-  border: blue solid 1px;
+  // width: 93%;
   display: flex;
   flex-direction: ${(props) => props.direction};
-  background-color: var(--lightblue);
-  background-image: url(${patternlight});
   background-position: center;
+  color: ${(props) => (props.theme === "light" ? `var(--darkNavy)` : "white")};
   padding: 50px;
+  padding-top: 80px;
+  margin: auto;
 `;
 
-const Questiontile = styled.div<{ borderColor?: string; idx?: number }>`
+const Questiontile = styled.div<{
+  borderColor?: string;
+  idx?: number;
+  theme: string;
+}>`
   cursor: pointer;
+  color: ${(props) => (props.theme === "dark" ? "white" : "")};
   display: flex;
   align-items: center;
   flex: 1;
   margin: 20px;
+  margin-top: 0px;
   width: 564px;
-  height: 66px;
-  border: white solid 2px;
+  height: 76px;
+  border: ${(props) =>
+    props.theme === "light" ? "white solid 2px" : "var(--navy) solid 2px"};
   border-radius: 15px;
-  background-color: var(--verylightblue);
+
+  background-color: ${(props) =>
+    props.theme === "light" ? `var(--verylightblue)` : `var(--opnavy)`};
+  filter: ${(props) =>
+    props.theme === "dark" ? `drop-shadow(0px 6px #313e51)` : ""};
 `;
 
 const SubmitButton = styled.button<{ bgColor: string; color: string }>`
@@ -65,19 +68,28 @@ const SubmitButton = styled.button<{ bgColor: string; color: string }>`
   cursor: pointer;
 `;
 
-const Options = styled.div<{ borderColor?: string; idx?: number }>`
+const Options = styled.div<{
+  borderColor?: string;
+  idx?: number;
+  theme: string;
+}>`
   margin: 20px;
   width: 35px;
   height: 36px;
   text-align: center;
   border: white solid 2px;
   border-radius: 10px;
-  //background-color: var(--verylightblue);
+  background-color: ${(props) =>
+    props.theme === "light" ? `var(--verylightblue))` : `var(--navy)`};
+
+  color: ${(props) => (props.theme === "light" ? `var(--darkNavy)` : "white")};
   cursor: pointer;
 `;
 const QuestionComp = () => {
   const dispatch = useDispatch();
   const { state } = useLocation();
+  const { theme } = useContext(ThemeContext);
+
   const { title, questions, icon } = state;
   const [questionCount, setQuestionCount] = useState(
     Object.keys(questions).length
@@ -95,7 +107,6 @@ const QuestionComp = () => {
   const [clickCounter, setClickCounter] = useState<boolean>(false);
   const [selectedDiv, setSelectedDiv] = useState<HTMLElement | null>();
   const [hoverelementId, setHoverElementId] = useState<string>();
-  //console.log("selectedOption", selectedOption);
 
   const answerCheck = (counter: number, i: any) => {
     setClickCounter(true);
@@ -107,7 +118,6 @@ const QuestionComp = () => {
     }
   };
   const moveToNextQuestion = () => {
-    debugger;
     setClickCounter(false);
     setCorrectAnswer("");
     setCounter(counter + 1);
@@ -117,15 +127,21 @@ const QuestionComp = () => {
     setSelectedOption(e.currentTarget.textContent);
 
     if (selectedOption) {
-      console.log(selectedOption);
     }
   };
 
   if (counter !== reversecounter) {
     return (
       <>
-        <Container direction="column">
-          <div style={{ display: "flex", alignItems: "center" }}>
+        <Container direction="column" theme={theme}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              position: "absolute",
+              top: "0px",
+              padding: "10px",
+            }}>
             <img
               style={{
                 width: "60px",
@@ -155,7 +171,7 @@ const QuestionComp = () => {
                     <div
                       style={{
                         width: "50%",
-                        paddingRight: "80px",
+                        padding: "30px",
                         height: "75%",
                       }}>
                       <p className="body-smallItalic">
@@ -178,8 +194,14 @@ const QuestionComp = () => {
                         display: "flex",
                         flexDirection: "column",
                         height: "100%",
+                        padding: "30px",
+                        color: theme === "dark" ? "white" : "",
                       }}>
-                      <ul style={{ flex: 1 }}>
+                      <ul
+                        style={{
+                          flex: 1,
+                          color: theme === "dark" ? "white" : "",
+                        }}>
                         {i.options.map((o: string, idx: number) => {
                           const id = `${idx}_${o}`;
                           return (
@@ -187,6 +209,7 @@ const QuestionComp = () => {
                               style={{
                                 borderColor: index === id ? correctAnswer : "",
                               }}
+                              theme={theme}
                               id={`question_${id}`}
                               key={id}
                               onClick={(e: SyntheticEvent) => {
@@ -212,13 +235,7 @@ const QuestionComp = () => {
                                     "style",
                                     "background-color : #F6E7FF"
                                   );
-                                  // elem?.firstChild?.setAttribute(
-                                  //   "style",
-                                  //   "fill : #F6E7FF"
-                                  // );
                                 }
-
-                                //setHoverState("#F6E7FF");
                               }}
                               onMouseLeave={(e: SyntheticEvent) => {
                                 const elem = document.getElementById(
@@ -238,6 +255,7 @@ const QuestionComp = () => {
                               }}>
                               <Options
                                 id={`option${id}`}
+                                theme={theme}
                                 style={{
                                   borderColor:
                                     index === id ? correctAnswer : "",

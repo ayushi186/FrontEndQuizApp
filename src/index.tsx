@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -13,6 +13,9 @@ import {
 import QuestionsComp from "./components/QuestionsComp";
 import { store } from "./store";
 import { Provider } from "react-redux";
+import { ThemeContext, ToggleProvider } from "./components/ThemeToggleContext";
+import ThemeToggle from "./components/ThemeToggel";
+import GlobalBackground from "./components/GlobalBackground";
 
 const router = createBrowserRouter([
   {
@@ -36,11 +39,17 @@ interface RouterProviderProps {
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} />
-    </Provider>
+    <ToggleProvider>
+      <GlobalBackground>
+        <ThemeToggle></ThemeToggle>
+        <Provider store={store}>
+          <RouterProvider router={router} />
+        </Provider>
+      </GlobalBackground>
+    </ToggleProvider>
   </React.StrictMode>
 );
 
