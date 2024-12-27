@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -6,27 +6,29 @@ import reportWebVitals from "./reportWebVitals";
 import QuestionComp from "./components/QuestionComp";
 import {
   createBrowserRouter,
-  Router,
   FutureConfig,
   RouterProvider,
 } from "react-router-dom";
-import QuestionsComp from "./components/QuestionsComp";
+
 import { store } from "./store";
 import { Provider } from "react-redux";
-import { ThemeContext, ToggleProvider } from "./components/ThemeToggleContext";
+import { ToggleProvider } from "./components/ThemeToggleContext";
 import ThemeToggle from "./components/ThemeToggel";
 import GlobalBackground from "./components/GlobalBackground";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "/Question",
-    element: <QuestionComp />,
-  },
-]);
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <App />,
+    },
+    {
+      path: "/Question",
+      element: <QuestionComp />,
+    },
+  ],
+  { basename: "/" }
+);
 
 // declare function RouterProvider(props: RouterProviderProps): React.ReactElement;
 
