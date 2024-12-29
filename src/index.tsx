@@ -19,7 +19,7 @@ import GlobalBackground from "./components/GlobalBackground";
 const router = createBrowserRouter(
   [
     {
-      path: "/",
+      path: "/app",
       element: <App />,
     },
     {
@@ -44,14 +44,14 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <ToggleProvider>
-      <GlobalBackground>
-        <ThemeToggle></ThemeToggle>
-        <Provider store={store}>
-          <RouterProvider router={router} />
-        </Provider>
-      </GlobalBackground>
-    </ToggleProvider>
+    <RouterProvider router={router} />
+    <Provider store={store}>
+      <ToggleProvider>
+        <GlobalBackground>
+          <ThemeToggle></ThemeToggle>
+        </GlobalBackground>
+      </ToggleProvider>
+    </Provider>
   </React.StrictMode>
 );
 
