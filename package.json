@@ -1,7 +1,7 @@
 {
   "name": "quizreactapp",
   "version": "0.1.0",
-  "private": false, 
+  "private": false,
   "homepage": "https://ayushi186.github.io/FrontendQuizApp",
   "dependencies": {
     "@redux-devtools/extension": "^3.3.0",
@@ -34,7 +34,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-   "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
