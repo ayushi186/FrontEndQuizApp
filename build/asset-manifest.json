@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.2f2eb39d.css",
-    "main.js": "/static/js/main.28dc9673.js",
-    "static/js/453.5129cf87.chunk.js": "/static/js/453.5129cf87.chunk.js",
-    "static/media/icon-accessibility.svg": "/static/media/icon-accessibility.9ffe8f1da9c860e307f58da00ef024ff.svg",
-    "static/media/icon-html.svg": "/static/media/icon-html.c187af98674c2fa0389329450866ef59.svg",
-    "static/media/icon-js.svg": "/static/media/icon-js.a4dcb6951c9d22c4040cf9252e27cacb.svg",
-    "static/media/icon-css.svg": "/static/media/icon-css.27e3b24f68b1eaa3fc729c40424c0d3d.svg",
-    "index.html": "/index.html",
-    "static/media/A.svg": "/static/media/A.a29a6c70e0aa6abcf8e7708b151a0f3a.svg",
-    "static/media/icon-sun-light.svg": "/static/media/icon-sun-light.19da7630d5e528840ecb2d41afde1235.svg",
-    "static/media/icon-sun-dark.svg": "/static/media/icon-sun-dark.b3b23bea296f86a7f2c14d4d8eaa2b4d.svg",
-    "static/media/icon-moon-light.svg": "/static/media/icon-moon-light.31aa7165f1fc864be0b9d0a3457a2525.svg",
-    "static/media/icon-moon-dark.svg": "/static/media/icon-moon-dark.8ce3add6042354c900e1fb16bb5f1780.svg",
-    "static/media/pattern-background-desktop-dark.svg": "/static/media/pattern-background-desktop-dark.e211d976d5b431130f8202dd6c8de661.svg",
-    "static/media/pattern-background-desktop-light.svg": "/static/media/pattern-background-desktop-light.f6626a2e6d948c343d8b2ac3319740be.svg",
-    "main.2f2eb39d.css.map": "/static/css/main.2f2eb39d.css.map",
-    "main.28dc9673.js.map": "/static/js/main.28dc9673.js.map",
-    "453.5129cf87.chunk.js.map": "/static/js/453.5129cf87.chunk.js.map"
+    "main.css": "/FrontendQuizApp/static/css/main.2f2eb39d.css",
+    "main.js": "/FrontendQuizApp/static/js/main.9c98f2ee.js",
+    "static/js/453.5129cf87.chunk.js": "/FrontendQuizApp/static/js/453.5129cf87.chunk.js",
+    "static/media/icon-accessibility.svg": "/FrontendQuizApp/static/media/icon-accessibility.9ffe8f1da9c860e307f58da00ef024ff.svg",
+    "static/media/icon-html.svg": "/FrontendQuizApp/static/media/icon-html.c187af98674c2fa0389329450866ef59.svg",
+    "static/media/icon-js.svg": "/FrontendQuizApp/static/media/icon-js.a4dcb6951c9d22c4040cf9252e27cacb.svg",
+    "static/media/icon-css.svg": "/FrontendQuizApp/static/media/icon-css.27e3b24f68b1eaa3fc729c40424c0d3d.svg",
+    "index.html": "/FrontendQuizApp/index.html",
+    "static/media/A.svg": "/FrontendQuizApp/static/media/A.a29a6c70e0aa6abcf8e7708b151a0f3a.svg",
+    "static/media/icon-sun-light.svg": "/FrontendQuizApp/static/media/icon-sun-light.19da7630d5e528840ecb2d41afde1235.svg",
+    "static/media/icon-sun-dark.svg": "/FrontendQuizApp/static/media/icon-sun-dark.b3b23bea296f86a7f2c14d4d8eaa2b4d.svg",
+    "static/media/icon-moon-light.svg": "/FrontendQuizApp/static/media/icon-moon-light.31aa7165f1fc864be0b9d0a3457a2525.svg",
+    "static/media/icon-moon-dark.svg": "/FrontendQuizApp/static/media/icon-moon-dark.8ce3add6042354c900e1fb16bb5f1780.svg",
+    "static/media/pattern-background-desktop-dark.svg": "/FrontendQuizApp/static/media/pattern-background-desktop-dark.e211d976d5b431130f8202dd6c8de661.svg",
+    "static/media/pattern-background-desktop-light.svg": "/FrontendQuizApp/static/media/pattern-background-desktop-light.f6626a2e6d948c343d8b2ac3319740be.svg",
+    "main.2f2eb39d.css.map": "/FrontendQuizApp/static/css/main.2f2eb39d.css.map",
+    "main.9c98f2ee.js.map": "/FrontendQuizApp/static/js/main.9c98f2ee.js.map",
+    "453.5129cf87.chunk.js.map": "/FrontendQuizApp/static/js/453.5129cf87.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2f2eb39d.css",
-    "static/js/main.28dc9673.js"
+    "static/js/main.9c98f2ee.js"
   ]
 }

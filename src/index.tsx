@@ -28,7 +28,7 @@ const router = createHashRouter(
       element: <QuestionComp />,
     },
   ],
-  { basename: `${process.env.PUBLIC_URL}` }
+  { basename: "/FrontendQuizApp/" }
 );
 
 // declare function RouterProvider(props: RouterProviderProps): React.ReactElement;
