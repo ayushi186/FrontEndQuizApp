@@ -20,7 +20,7 @@ import GlobalBackground from "./components/GlobalBackground";
 const router = createHashRouter(
   [
     {
-      path: "/app",
+      path: "/",
       element: <App />,
     },
     {
@@ -28,7 +28,7 @@ const router = createHashRouter(
       element: <QuestionComp />,
     },
   ],
-  { basename: "/app" }
+  { basename: "/" }
 );
 
 // declare function RouterProvider(props: RouterProviderProps): React.ReactElement;
@@ -45,7 +45,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    {/* <RouterProvider router={router} /> */}
     <Provider store={store}>
       <ToggleProvider>
         <GlobalBackground>
