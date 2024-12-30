@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import QuestionComp from "./components/QuestionComp";
 import {
   createBrowserRouter,
+  createHashRouter,
   FutureConfig,
   RouterProvider,
 } from "react-router-dom";
@@ -16,7 +17,7 @@ import { ToggleProvider } from "./components/ThemeToggleContext";
 import ThemeToggle from "./components/ThemeToggel";
 import GlobalBackground from "./components/GlobalBackground";
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   [
     {
       path: "/app",
