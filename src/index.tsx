@@ -28,7 +28,7 @@ const router = createHashRouter(
       element: <QuestionComp />,
     },
   ],
-  { basename: "/" }
+  { basename: "/<FrontendQuizApp>/" }
 );
 
 // declare function RouterProvider(props: RouterProviderProps): React.ReactElement;
@@ -45,7 +45,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    {/* <RouterProvider router={router} /> */}
+    <RouterProvider router={router} />
     <Provider store={store}>
       <ToggleProvider>
         <GlobalBackground>
