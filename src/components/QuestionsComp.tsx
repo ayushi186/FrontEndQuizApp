@@ -43,7 +43,7 @@ const Questiontile = styled.div<{ theme: string }>`
 
 const QuestionsComp = ({ title, icon, questions }: Props) => {
   const { theme } = useContext(ThemeContext);
-  console.log("theme", theme);
+
   // useNavigate for navigating to the individual questions
   const navigate = useNavigate();
   const data = useSelector((state: Tquestions) => state);

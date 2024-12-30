@@ -1,8 +1,8 @@
 {
   "name": "quizreactapp",
   "version": "0.1.0",
-  "private": false,
-  "homepage": "https://ayushi186.github.io/FrontendQuizApp",
+  "private": false, 
+  "homepage": "https://ayushi186.github.io/",
   "dependencies": {
     "@redux-devtools/extension": "^3.3.0",
     "@reduxjs/toolkit": "^2.2.7",

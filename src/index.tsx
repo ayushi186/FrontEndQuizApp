@@ -45,14 +45,14 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-    <Provider store={store}>
-      <ToggleProvider>
-        <GlobalBackground>
-          <ThemeToggle></ThemeToggle>
-        </GlobalBackground>
-      </ToggleProvider>
-    </Provider>
+    <ToggleProvider>
+      <GlobalBackground>
+        <ThemeToggle></ThemeToggle>
+        <Provider store={store}>
+          <RouterProvider router={router} />
+        </Provider>
+      </GlobalBackground>
+    </ToggleProvider>
   </React.StrictMode>
 );
 
