@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/FrontEndQuizApp/static/css/main.2f2eb39d.css",
-    "main.js": "/FrontEndQuizApp/static/js/main.831a4e65.js",
+    "main.js": "/FrontEndQuizApp/static/js/main.107f0ba9.js",
     "static/js/453.5129cf87.chunk.js": "/FrontEndQuizApp/static/js/453.5129cf87.chunk.js",
     "static/media/icon-accessibility.svg": "/FrontEndQuizApp/static/media/icon-accessibility.9ffe8f1da9c860e307f58da00ef024ff.svg",
     "static/media/icon-html.svg": "/FrontEndQuizApp/static/media/icon-html.c187af98674c2fa0389329450866ef59.svg",
     "static/media/icon-js.svg": "/FrontEndQuizApp/static/media/icon-js.a4dcb6951c9d22c4040cf9252e27cacb.svg",
     "static/media/icon-css.svg": "/FrontEndQuizApp/static/media/icon-css.27e3b24f68b1eaa3fc729c40424c0d3d.svg",
+    "index.html": "/FrontEndQuizApp/index.html",
     "static/media/A.svg": "/FrontEndQuizApp/static/media/A.a29a6c70e0aa6abcf8e7708b151a0f3a.svg",
     "static/media/icon-sun-light.svg": "/FrontEndQuizApp/static/media/icon-sun-light.19da7630d5e528840ecb2d41afde1235.svg",
     "static/media/icon-sun-dark.svg": "/FrontEndQuizApp/static/media/icon-sun-dark.b3b23bea296f86a7f2c14d4d8eaa2b4d.svg",
-    "index.html": "/FrontEndQuizApp/index.html",
     "static/media/icon-moon-light.svg": "/FrontEndQuizApp/static/media/icon-moon-light.31aa7165f1fc864be0b9d0a3457a2525.svg",
     "static/media/icon-moon-dark.svg": "/FrontEndQuizApp/static/media/icon-moon-dark.8ce3add6042354c900e1fb16bb5f1780.svg",
     "static/media/pattern-background-desktop-dark.svg": "/FrontEndQuizApp/static/media/pattern-background-desktop-dark.e211d976d5b431130f8202dd6c8de661.svg",
     "static/media/pattern-background-desktop-light.svg": "/FrontEndQuizApp/static/media/pattern-background-desktop-light.f6626a2e6d948c343d8b2ac3319740be.svg",
     "main.2f2eb39d.css.map": "/FrontEndQuizApp/static/css/main.2f2eb39d.css.map",
-    "main.831a4e65.js.map": "/FrontEndQuizApp/static/js/main.831a4e65.js.map",
+    "main.107f0ba9.js.map": "/FrontEndQuizApp/static/js/main.107f0ba9.js.map",
     "453.5129cf87.chunk.js.map": "/FrontEndQuizApp/static/js/453.5129cf87.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2f2eb39d.css",
-    "static/js/main.831a4e65.js"
+    "static/js/main.107f0ba9.js"
   ]
 }
