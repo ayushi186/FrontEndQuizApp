@@ -24,7 +24,7 @@ export type Tquestions = {
 export const Container = styled.div<{ direction?: string; theme: string }>`
   height: 100vh;
   // width: 93%;
-  width: 100%;
+  //width: 100%;
   display: flex;
   flex-direction: ${(props) => props.direction};
   background-position: center;
