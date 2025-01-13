@@ -26,8 +26,9 @@ export const LabelStyles = styled.span`
   fontweight: "bold";
 `;
 
-export const ScoreCard = styled.div`
-  background-color: white;
+export const ScoreCard = styled.div<{ theme: string }>`
+  background-color: ${(props) =>
+    props.theme === "light" ? "white" : "var(--navy)"};
   align-items: center;
   border-radius: 15px;
   flex: 1;

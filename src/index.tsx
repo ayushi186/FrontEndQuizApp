@@ -5,7 +5,6 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import QuestionComp from "./components/QuestionComp";
 import {
-  createBrowserRouter,
   createHashRouter,
   FutureConfig,
   RouterProvider,
@@ -17,20 +16,16 @@ import { ToggleProvider } from "./components/ThemeToggleContext";
 import ThemeToggle from "./components/ThemeToggel";
 import GlobalBackground from "./components/GlobalBackground";
 
-const router = createHashRouter(
-  [
-    {
-      path: "/",
-      element: <App />,
-    },
-    {
-      path: "/Question",
-      element: <QuestionComp />,
-    },
-  ],
-  { basename: "/FrontendQuizApp" }
-);
-
+const router = createHashRouter([
+  {
+    path: "/*",
+    element: <App />,
+  },
+  {
+    path: "/Question",
+    element: <QuestionComp />,
+  },
+]);
 // declare function RouterProvider(props: RouterProviderProps): React.ReactElement;
 
 interface RouterProviderProps {

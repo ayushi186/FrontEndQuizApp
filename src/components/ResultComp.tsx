@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { Container } from "./QuestionComp";
 import { ScoreCard } from "./StyledComp";
+import { ThemeContext } from "./ThemeToggleContext";
 
 type Iprops = {
   title?: string;
@@ -23,14 +24,16 @@ type Tquestion = {
   questions: Array<Tquestions>;
 };
 
-const ResultComp = ({ title, questionCount }: Iprops) => {
+export default function ResultComp({ title, questionCount }: Iprops) {
   const cartItems = useSelector((state: Ireducers) => state.answeredquestions);
   const totalQ = questionCount;
   const totalqronganswerfed = cartItems.length;
 
+  const { theme } = useContext(ThemeContext);
+
   return (
     <>
-      <Container>
+      <Container theme={theme}>
         <div
           style={{
             display: "flex",
@@ -42,7 +45,7 @@ const ResultComp = ({ title, questionCount }: Iprops) => {
           <h1>Quiz Completed </h1>
           <h2>You Scored ...</h2>
         </div>
-        <ScoreCard>
+        <ScoreCard theme={theme}>
           <div>{title}</div>
           <h1>{totalQ! - totalqronganswerfed}</h1>
           <h2>Out of {questionCount}</h2>
@@ -50,6 +53,4 @@ const ResultComp = ({ title, questionCount }: Iprops) => {
       </Container>
     </>
   );
-};
-
-export default ResultComp;
+}

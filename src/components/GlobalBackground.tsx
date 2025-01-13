@@ -15,7 +15,7 @@ const Container = styled.div<{ theme: string }>`
   flex-direction: column;
   align-items: flex-end;
   background-color: ${(props) =>
-    props.theme === "light" ? `var(--lightblue)` : `#3B4D66`};
+    props.theme === "light" ? `var(--lightblue)` : `var(--darkNavy)`};
   background-image: ${(props) =>
     props.theme === "light" ? `url(${patternlight})` : `url(${patterndark})`};
   background-position: center;

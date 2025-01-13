@@ -21,6 +21,7 @@ const Equalinnerdiv = styled.div<{ theme: string }>`
   height: 100%;
   flex-direction: column;
   flex: 1;
+  width: 100%;
   //border: var(--red) solid 1px;
   text-align: left;
   padding: 30px;

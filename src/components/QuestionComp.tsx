@@ -24,6 +24,7 @@ export type Tquestions = {
 export const Container = styled.div<{ direction?: string; theme: string }>`
   height: 100vh;
   // width: 93%;
+  width: 100%;
   display: flex;
   flex-direction: ${(props) => props.direction};
   background-position: center;
@@ -105,6 +106,7 @@ const QuestionComp = () => {
   const [correctAnswer, setCorrectAnswer] = useState<string>("");
   const [index, setIndex] = useState<string>();
   const [clickCounter, setClickCounter] = useState<boolean>(false);
+  const [disabled, setDisabled] = useState<boolean>(false);
   const [selectedDiv, setSelectedDiv] = useState<HTMLElement | null>();
   const [hoverelementId, setHoverElementId] = useState<string>();
 
@@ -118,6 +120,7 @@ const QuestionComp = () => {
     }
   };
   const moveToNextQuestion = () => {
+    setDisabled(false);
     setClickCounter(false);
     setCorrectAnswer("");
     setCounter(counter + 1);
@@ -165,9 +168,7 @@ const QuestionComp = () => {
             if (idx === counter) {
               return (
                 <>
-                  <div
-                    style={{ display: "flex", width: "100%", flex: 0.5 }}
-                    key={idx}>
+                  <div style={{ display: "flex", width: "100%" }} key={idx}>
                     <div
                       style={{
                         width: "50%",
@@ -213,6 +214,7 @@ const QuestionComp = () => {
                               id={`question_${id}`}
                               key={id}
                               onClick={(e: SyntheticEvent) => {
+                                setDisabled(true);
                                 setCorrectAnswer("#A729F5");
 
                                 setIndex(id);
@@ -221,7 +223,6 @@ const QuestionComp = () => {
                                 setSelectedDiv(
                                   document.getElementById(`option${id}`)
                                 );
-                                console.log(idx);
                               }}
                               onMouseEnter={(e: SyntheticEvent) => {
                                 const elem = document.getElementById(
@@ -229,7 +230,6 @@ const QuestionComp = () => {
                                 );
                                 setHoverElementId(elem?.lastElementChild?.id);
 
-                                console.log(elem?.lastElementChild?.id);
                                 if (selectedDiv !== elem) {
                                   elem?.setAttribute(
                                     "style",
@@ -242,16 +242,13 @@ const QuestionComp = () => {
                                   `option${id}`
                                 );
                                 setHoverElementId("");
-                                console.log(index);
-                                console.log(elem);
+
                                 if (selectedDiv !== elem) {
                                   elem?.setAttribute(
                                     "style",
                                     "background-color : #F4F6FA"
                                   );
                                 }
-
-                                //setHoverState("#F6E7FF");
                               }}>
                               <Options
                                 id={`option${id}`}
@@ -319,7 +316,8 @@ const QuestionComp = () => {
                       </ul>
                       <div style={{ flex: 1 }}>
                         <SubmitButton
-                          bgColor="#A729F5"
+                          disabled={disabled ? false : true}
+                          bgColor={disabled ? "#A729F5" : "#c681f0"}
                           color="white"
                           onClick={() => {
                             !clickCounter
