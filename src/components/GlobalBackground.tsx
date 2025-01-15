@@ -10,7 +10,8 @@ interface IProps {
 }
 const Container = styled.div<{ theme: string }>`
   height: 100vh;
-  margin: auto;
+  // margin: auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;

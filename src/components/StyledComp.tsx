@@ -26,15 +26,26 @@ export const LabelStyles = styled.span`
   fontweight: "bold";
 `;
 
-export const ScoreCard = styled.div<{ theme: string }>`
+export const ScoreCard = styled.div<{ theme: string; inner?: boolean }>`
   background-color: ${(props) =>
     props.theme === "light" ? "white" : "var(--navy)"};
   align-items: center;
   border-radius: 15px;
-  flex: 1;
+  width: 100%;
   display: flex;
-  width: 350px;
+
   height: 350px;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+
+export const ScoreCardOuter = styled.div`
+  align-items: center;
+  border-radius: 15px;
+  width: 40%;
+  display: flex;
+
+  height: 500px;
   flex-direction: column;
   justify-content: space-around;
 `;

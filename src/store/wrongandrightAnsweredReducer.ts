@@ -1,22 +1,27 @@
 import { Tquestions } from "../components/QuestionComp";
 
+export const ADD_WRONG_ANSWER = "answeredQ/wrongQ";
+export const RESET_WRONG_ANSWER = "answeredQ/reset";
 
+export function trackwronglyansweredquestion(question: Tquestions) {
+  return { type: ADD_WRONG_ANSWER, payload: question };
+}
 
- export const ADD_WRONG_ANSWER = 'answeredQ/wrongQ'
+export function resetwronglyansweredquestion() {
+  return { type: RESET_WRONG_ANSWER };
+}
+export default function trackqnswerReducer(
+  state: Array<Tquestions> = [],
+  action: { type: string; payload: Tquestions }
+) {
+  switch (action.type) {
+    case ADD_WRONG_ANSWER:
+      return [...state, { ...action.payload }];
 
- export function trackwronglyansweredquestion(question: Tquestions){
-    return { type: ADD_WRONG_ANSWER, payload: question }  
+    case RESET_WRONG_ANSWER:
+      return [];
+
+    default:
+      return state;
   }
-export default function trackqnswerReducer(state: Array<Tquestions> = [] , action: { type: string; payload: Tquestions}) {
-   debugger
-
-    switch(action.type) {
-      
-      case ADD_WRONG_ANSWER : 
-      console.log("from reducer" , state)
-      return[ ...state , {...action.payload}]
-
-      default: return state;
-    }
-  
-  }
+}

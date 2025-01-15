@@ -1,15 +1,11 @@
 import React, { useContext, useState } from "react";
-import logo from "./logo.svg";
 import "./App.scss";
-import { createBrowserRouter } from "react-router-dom";
 
 import { LandingpageComp } from "./components/LandingpageComp";
 import patternlight from "./assets/images/pattern-background-desktop-light.svg";
 import patterndark from "./assets/images/pattern-background-desktop-dark.svg";
 
 import { styled } from "styled-components";
-import ThemeToggle from "./components/ThemeToggel";
-import { ThemeContext } from "./components/ThemeToggleContext";
 
 const StyledSVG = styled.svg`
   //background-color: ${(props) => props.color};

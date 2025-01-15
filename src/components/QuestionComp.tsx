@@ -21,17 +21,24 @@ export type Tquestions = {
   answer: string;
 };
 
-export const Container = styled.div<{ direction?: string; theme: string }>`
+export const Container = styled.div<{
+  direction?: string;
+  theme: string;
+  comp?: string;
+}>`
   height: 100vh;
   // width: 93%;
   //width: 100%;
+  width: ${(props) => (props.comp === "result" ? "100%" : "unset")};
   display: flex;
   flex-direction: ${(props) => props.direction};
   background-position: center;
   color: ${(props) => (props.theme === "light" ? `var(--darkNavy)` : "white")};
-  padding: 50px;
+  padding: ${(props) => (props.comp === "result" ? "0px" : "50px")};
   padding-top: 80px;
   margin: auto;
+  justify-content: ${(props) =>
+    props.comp === "result" ? "space-evenly" : "unset"};
 `;
 
 const Questiontile = styled.div<{
@@ -40,7 +47,7 @@ const Questiontile = styled.div<{
   theme: string;
 }>`
   cursor: pointer;
-  color: ${(props) => (props.theme === "dark" ? "white" : "")};
+  color: ${(props) => (props.theme === "dark" ? "white" : "var(--darkNavy)")};
   display: flex;
   align-items: center;
   flex: 1;
@@ -58,7 +65,7 @@ const Questiontile = styled.div<{
     props.theme === "dark" ? `drop-shadow(0px 6px #313e51)` : ""};
 `;
 
-const SubmitButton = styled.button<{ bgColor: string; color: string }>`
+export const SubmitButton = styled.button<{ bgColor: string; color: string }>`
   margin: 20px;
   width: 564px;
   height: 66px;
@@ -207,6 +214,8 @@ const QuestionComp = () => {
                           const id = `${idx}_${o}`;
                           return (
                             <Questiontile
+                              className="h1-medium2"
+                              aria-disabled={clickCounter ? true : false}
                               style={{
                                 borderColor: index === id ? correctAnswer : "",
                               }}
@@ -214,40 +223,46 @@ const QuestionComp = () => {
                               id={`question_${id}`}
                               key={id}
                               onClick={(e: SyntheticEvent) => {
-                                setDisabled(true);
-                                setCorrectAnswer("#A729F5");
+                                if (e.currentTarget.ariaDisabled === "false") {
+                                  setDisabled(true);
+                                  setCorrectAnswer("#A729F5");
 
-                                setIndex(id);
-                                setActualAnswers(i.answer);
-                                storeAnswer(e);
-                                setSelectedDiv(
-                                  document.getElementById(`option${id}`)
-                                );
-                              }}
-                              onMouseEnter={(e: SyntheticEvent) => {
-                                const elem = document.getElementById(
-                                  `option${id}`
-                                );
-                                setHoverElementId(elem?.lastElementChild?.id);
-
-                                if (selectedDiv !== elem) {
-                                  elem?.setAttribute(
-                                    "style",
-                                    "background-color : #F6E7FF"
+                                  setIndex(id);
+                                  setActualAnswers(i.answer);
+                                  storeAnswer(e);
+                                  setSelectedDiv(
+                                    document.getElementById(`option${id}`)
                                   );
                                 }
                               }}
-                              onMouseLeave={(e: SyntheticEvent) => {
-                                const elem = document.getElementById(
-                                  `option${id}`
-                                );
-                                setHoverElementId("");
-
-                                if (selectedDiv !== elem) {
-                                  elem?.setAttribute(
-                                    "style",
-                                    "background-color : #F4F6FA"
+                              onMouseEnter={(e: SyntheticEvent) => {
+                                if (e.currentTarget.ariaDisabled === "false") {
+                                  const elem = document.getElementById(
+                                    `option${id}`
                                   );
+                                  setHoverElementId(elem?.lastElementChild?.id);
+
+                                  if (selectedDiv !== elem) {
+                                    elem?.setAttribute(
+                                      "style",
+                                      "background-color : #F6E7FF"
+                                    );
+                                  }
+                                }
+                              }}
+                              onMouseLeave={(e: SyntheticEvent) => {
+                                if (e.currentTarget.ariaDisabled === "false") {
+                                  const elem = document.getElementById(
+                                    `option${id}`
+                                  );
+                                  setHoverElementId("");
+
+                                  if (selectedDiv !== elem) {
+                                    elem?.setAttribute(
+                                      "style",
+                                      "background-color : #F4F6FA"
+                                    );
+                                  }
                                 }
                               }}>
                               <Options
@@ -316,10 +331,12 @@ const QuestionComp = () => {
                       </ul>
                       <div style={{ flex: 1 }}>
                         <SubmitButton
+                          className="h1-medium2"
                           disabled={disabled ? false : true}
                           bgColor={disabled ? "#A729F5" : "#c681f0"}
                           color="white"
                           onClick={() => {
+                            console.log("clickCounter", i);
                             !clickCounter
                               ? answerCheck(counter, i)
                               : moveToNextQuestion();

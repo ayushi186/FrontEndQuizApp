@@ -1,12 +1,13 @@
 @import '../src/styles/_mixins.scss';
-h1,ul {
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+h1,ul, body {
   margin: 0;
   padding: 0;
 }
 .App {
-  margin: auto;
-  text-align: center;
-  height: 100%;
+  // margin: auto;
+  // text-align: center;
+  // height: 100%;
 }
 
 .App-logo {
@@ -66,6 +67,12 @@ h1{
 .heading-medium{
   @include font-heading-medium-bold-medium;
 }
+.h1-medium2{
+  @include font-heading-small-medium2;
+}
+
+.h1-large-light {
+  @include font-heading-large-light;}
 
 .toogle{
   display: flex;

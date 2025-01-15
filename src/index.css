@@ -1,11 +1,11 @@
 
 body {
-  margin: 0;
-  font-family: Rubik, "Segoe UI", "Roboto", "Oxygen",
+  /* margin: 0; */
+  font-family: "Rubik", "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
 code {
@@ -25,7 +25,7 @@ code {
   --red: #ee5454;
   --darkNavy: #313E51;
   --navy : #3B4D66;
---opnavy: rgba(58, 75, 100, 0.6)
+  --opnavy: rgba(58, 75, 100, 0.6)
   
 }
 
