@@ -356,7 +356,9 @@ const QuestionComp = () => {
       </>
     );
   } else {
-    return <ResultComp title={title} questionCount={questionCount} />;
+    return (
+      <ResultComp title={title} icon={icon} questionCount={questionCount} />
+    );
   }
 };
 

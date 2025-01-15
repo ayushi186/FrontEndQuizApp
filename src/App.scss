@@ -74,6 +74,10 @@ h1{
 .h1-large-light {
   @include font-heading-large-light;}
 
+.body-reg{
+  @include font-body-medium-regular;
+}
+
 .toogle{
   display: flex;
   padding-top: 10px;
