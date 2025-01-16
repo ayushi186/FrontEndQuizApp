@@ -30,7 +30,7 @@ const Questiontile = styled.div<{ theme: string }>`
   flex: 1;
   margin: 20px;
   margin-top: 0px;
-  width: 564px;
+  //width: 564px;
   height: 30px;
   //border: var(--red) solid 1px;
   border-radius: 5px;

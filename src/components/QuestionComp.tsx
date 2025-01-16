@@ -29,15 +29,16 @@ export const Container = styled.div<{
 }>`
   height: 100vh;
   // width: 93%;
-  //width: 100%;
-  width: ${(props) => (props.comp === "result" ? "100%" : "unset")};
+  width: 100%;
+  //width: ${(props) => (props.comp === "result" ? "100%" : "unset")};
   display: flex;
   flex-direction: ${(props) => props.direction};
   background-position: center;
   color: ${(props) => (props.theme === "light" ? `var(--darkNavy)` : "white")};
   padding: ${(props) => (props.comp === "result" ? "0px" : "50px")};
+  padding: 0px;
   padding-top: 80px;
-  margin: auto;
+  //margin: auto;
   justify-content: ${(props) =>
     props.comp === "result" ? "space-evenly" : "unset"};
 `;
@@ -185,12 +186,17 @@ const QuestionComp = () => {
             if (idx === counter) {
               return (
                 <>
-                  <div style={{ display: "flex", width: "100%" }} key={idx}>
+                  <div
+                    style={{
+                      display: "flex",
+                      width: "100%",
+                      justifyContent: "space-around",
+                    }}
+                    key={idx}>
                     <div
                       style={{
-                        width: "50%",
-                        padding: "30px",
                         height: "75%",
+                        width: "40%",
                       }}>
                       <p className="body-smallItalic">
                         Question {counter !== 0 ? counter + 1 : 1} of{" "}
@@ -208,11 +214,11 @@ const QuestionComp = () => {
 
                     <div
                       style={{
-                        width: "50%",
                         display: "flex",
                         flexDirection: "column",
                         height: "100%",
-                        padding: "30px",
+                        width: "40%",
+
                         color: theme === "dark" ? "white" : "",
                       }}>
                       <ul
