@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ContainerStyles = styled.div`
-  height: 20;
+  height: 10px;
   width: "100%";
   background-color: white;
   border-radius: 15px;
@@ -13,7 +13,7 @@ export const FillerStyles = styled.div<{
   bgcolor?: string;
   completed?: number;
 }>`
-  height: 20px;
+  height: 10px;
   width: ${(props) => props.completed}%;
   background-color: ${(props) => props.bgcolor};
   borderradius: "inherit";
