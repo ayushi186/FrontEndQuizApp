@@ -14,6 +14,7 @@ import js from "../assets/images/icon-js.svg";
 import acc from "../assets/images/icon-accessibility.svg";
 
 import { ThemeContext } from "./ThemeToggleContext";
+import { useLoader } from "../helpers/customhooks";
 
 export type Tquestions = {
   question: string;
@@ -116,21 +117,30 @@ const QuestionComp = () => {
   const [disabled, setDisabled] = useState<boolean>(false);
   const [selectedDiv, setSelectedDiv] = useState<HTMLElement | null>();
   const [hoverelementId, setHoverElementId] = useState<string>();
+  const { showLoader, hideLoader } = useLoader();
 
   const answerCheck = (counter: number, i: any) => {
-    setClickCounter(true);
-    if (selectedOption === actualAnswer) {
-      setCorrectAnswer("#26D782");
-    } else {
-      dispatch(trackwronglyansweredquestion(i));
-      setCorrectAnswer("#EE5454");
-    }
+    showLoader("submitting your answer");
+    setTimeout(() => {
+      setClickCounter(true);
+      if (selectedOption === actualAnswer) {
+        setCorrectAnswer("#26D782");
+      } else {
+        dispatch(trackwronglyansweredquestion(i));
+        setCorrectAnswer("#EE5454");
+      }
+      hideLoader();
+    }, 600);
   };
   const moveToNextQuestion = () => {
-    setDisabled(false);
-    setClickCounter(false);
-    setCorrectAnswer("");
-    setCounter(counter + 1);
+    showLoader("Moving on to next question");
+    setTimeout(() => {
+      setDisabled(false);
+      setClickCounter(false);
+      setCorrectAnswer("");
+      setCounter(counter + 1);
+      hideLoader();
+    }, 600);
   };
 
   const storeAnswer = (e: SyntheticEvent) => {
@@ -336,7 +346,6 @@ const QuestionComp = () => {
                           bgColor={disabled ? "#A729F5" : "#c681f0"}
                           color="white"
                           onClick={() => {
-                            console.log("clickCounter", i);
                             !clickCounter
                               ? answerCheck(counter, i)
                               : moveToNextQuestion();

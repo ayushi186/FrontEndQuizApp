@@ -9,6 +9,7 @@ import {
   FutureConfig,
   RouterProvider,
 } from "react-router-dom";
+import { LoaderProvider } from "./components/LoaderProvider";
 
 import { store } from "./store";
 import { Provider } from "react-redux";
@@ -28,12 +29,6 @@ const router = createHashRouter([
 ]);
 // declare function RouterProvider(props: RouterProviderProps): React.ReactElement;
 
-interface RouterProviderProps {
-  fallbackElement?: React.ReactNode;
-  router: any;
-  future?: FutureConfig;
-}
-
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
@@ -43,9 +38,11 @@ root.render(
     <ToggleProvider>
       <GlobalBackground>
         <ThemeToggle></ThemeToggle>
-        <Provider store={store}>
-          <RouterProvider router={router} />
-        </Provider>
+        <LoaderProvider>
+          <Provider store={store}>
+            <RouterProvider router={router} />
+          </Provider>
+        </LoaderProvider>
       </GlobalBackground>
     </ToggleProvider>
   </React.StrictMode>

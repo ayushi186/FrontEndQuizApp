@@ -10,6 +10,8 @@ import css from "../assets/images/icon-css.svg";
 import js from "../assets/images/icon-js.svg";
 import acc from "../assets/images/icon-accessibility.svg";
 import { ThemeContext } from "./ThemeToggleContext";
+import { useLoader } from "../helpers/customhooks";
+
 interface Props {
   title: string;
   icon: string;
@@ -43,6 +45,7 @@ const Questiontile = styled.div<{ theme: string }>`
 
 const QuestionsComp = ({ title, icon, questions }: Props) => {
   const { theme } = useContext(ThemeContext);
+  const { showLoader, hideLoader } = useLoader();
 
   // useNavigate for navigating to the individual questions
   const navigate = useNavigate();
@@ -55,8 +58,12 @@ const QuestionsComp = ({ title, icon, questions }: Props) => {
       <Questiontile
         theme={theme}
         onClick={() => {
-          navigate("./Question", { state: { title, questions, icon } });
-          dispatch(addcurrsecquestions(questions));
+          showLoader("Loading questions");
+          setTimeout(() => {
+            navigate("./Question", { state: { title, questions, icon } });
+            dispatch(addcurrsecquestions(questions));
+            hideLoader();
+          }, 500);
         }}>
         <img
           style={{

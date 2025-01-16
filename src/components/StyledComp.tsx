@@ -49,3 +49,20 @@ export const ScoreCardOuter = styled.div`
   flex-direction: column;
   justify-content: space-around;
 `;
+
+export const LoaderWrapper = styled.div<{ theme: string }>`
+  position: absolute;
+  z-index: 99999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background-color: ${(props) =>
+    props.theme === "light" ? "white" : "var(--navy)"};
+  opacity: 0.9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;

@@ -85,3 +85,44 @@ h1{
   padding-right: 111px;
 }
 
+.loader {
+  position: absolute;
+  z-index: 99999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  opacity: 0.9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 10px solid #ccc;
+  border-top: 10px solid #A729F5;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.loader-message {
+  margin-top: 10px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #A729F5;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
