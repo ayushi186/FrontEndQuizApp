@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/FrontEndQuizApp/static/css/main.b64addad.css",
-    "main.js": "/FrontEndQuizApp/static/js/main.4470ea31.js",
+    "main.css": "/FrontEndQuizApp/static/css/main.cbd11cac.css",
+    "main.js": "/FrontEndQuizApp/static/js/main.6807fec8.js",
     "static/js/453.5129cf87.chunk.js": "/FrontEndQuizApp/static/js/453.5129cf87.chunk.js",
     "static/media/icon-accessibility.svg": "/FrontEndQuizApp/static/media/icon-accessibility.9ffe8f1da9c860e307f58da00ef024ff.svg",
     "static/media/icon-html.svg": "/FrontEndQuizApp/static/media/icon-html.c187af98674c2fa0389329450866ef59.svg",
@@ -15,12 +15,12 @@
     "static/media/icon-moon-dark.svg": "/FrontEndQuizApp/static/media/icon-moon-dark.8ce3add6042354c900e1fb16bb5f1780.svg",
     "static/media/pattern-background-desktop-dark.svg": "/FrontEndQuizApp/static/media/pattern-background-desktop-dark.e211d976d5b431130f8202dd6c8de661.svg",
     "static/media/pattern-background-desktop-light.svg": "/FrontEndQuizApp/static/media/pattern-background-desktop-light.f6626a2e6d948c343d8b2ac3319740be.svg",
-    "main.b64addad.css.map": "/FrontEndQuizApp/static/css/main.b64addad.css.map",
-    "main.4470ea31.js.map": "/FrontEndQuizApp/static/js/main.4470ea31.js.map",
+    "main.cbd11cac.css.map": "/FrontEndQuizApp/static/css/main.cbd11cac.css.map",
+    "main.6807fec8.js.map": "/FrontEndQuizApp/static/js/main.6807fec8.js.map",
     "453.5129cf87.chunk.js.map": "/FrontEndQuizApp/static/js/453.5129cf87.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b64addad.css",
-    "static/js/main.4470ea31.js"
+    "static/css/main.cbd11cac.css",
+    "static/js/main.6807fec8.js"
   ]
 }
