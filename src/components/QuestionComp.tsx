@@ -161,26 +161,37 @@ const QuestionComp = () => {
               alignItems: "center",
               position: "absolute",
               top: "0px",
-              padding: "10px",
+              width: "80%",
+              justifyContent: "space-around",
+              paddingTop: "10px",
             }}>
-            <img
+            <div
               style={{
-                width: "60px",
-                height: "60px",
-                marginLeft: "10px",
-                marginRight: "10px",
-              }}
-              src={
-                icon === "icon-html"
-                  ? html
-                  : icon === "icon-css"
-                  ? css
-                  : icon === "icon-js"
-                  ? js
-                  : acc
-              }
-            />
-            <h1 className="h1-small">{title}</h1>
+                display: "flex",
+                alignItems: "center",
+                width: "40%",
+              }}>
+              <img
+                style={{
+                  width: "60px",
+                  height: "60px",
+                  marginRight: "10px",
+                }}
+                src={
+                  icon === "icon-html"
+                    ? html
+                    : icon === "icon-css"
+                    ? css
+                    : icon === "icon-js"
+                    ? js
+                    : acc
+                }
+              />
+              <h1 className="h1-small" style={{ width: "40%" }}>
+                {title}
+              </h1>
+            </div>
+            <div style={{ width: "40%" }}></div>
           </div>
           {questions.map((i: any, idx: number) => {
             if (idx === counter) {
