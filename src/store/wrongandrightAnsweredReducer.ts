@@ -1,4 +1,4 @@
-import { Tquestions } from "../components/QuestionComp";
+import { Tquestions } from "../types/types";
 
 export const ADD_WRONG_ANSWER = "answeredQ/wrongQ";
 export const RESET_WRONG_ANSWER = "answeredQ/reset";

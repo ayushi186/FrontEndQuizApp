@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
-
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -11,51 +9,25 @@ import js from "../assets/images/icon-js.svg";
 import acc from "../assets/images/icon-accessibility.svg";
 import { ThemeContext } from "./ThemeToggleContext";
 import { useLoader } from "../helpers/customhooks";
+import { QuestiontileLandingPage } from "./StyledComp";
+import { Tquestion, Tquestions } from "../types/types";
 
-interface Props {
-  title: string;
-  icon: string;
-  questions: Array<Tquestions>;
-}
-
-type Tquestions = {
-  question: string;
-  options: string[];
-  answer: string;
-};
-
-const Questiontile = styled.div<{ theme: string }>`
-  display: flex;
-  align-items: center;
-  flex: 1;
-  margin: 20px;
-  margin-top: 0px;
-  //width: 564px;
-  height: 30px;
-  //border: var(--red) solid 1px;
-  border-radius: 5px;
-  background-color: ${(props) =>
-    props.theme === "light" ? `var(--verylightblue)` : `var(--opnavy)`};
-  color: ${(props) => (props.theme === "dark" ? "white" : "")}
-  cursor: pointer;
-  filter: ${(props) =>
-    props.theme === "dark" ? `drop-shadow(0px 6px #313e51)` : ""};
-  pointer: cursor !important;
-`;
-
-const QuestionsComp = ({ title, icon, questions }: Props) => {
+const QuestionsComp = ({
+  title,
+  icon,
+  questions,
+}: Tquestion): React.ReactElement => {
   const { theme } = useContext(ThemeContext);
-  const { showLoader, hideLoader } = useLoader();
-
+  const dispatch = useDispatch();
   // useNavigate for navigating to the individual questions
   const navigate = useNavigate();
+  const { showLoader, hideLoader } = useLoader();
   const data = useSelector((state: Tquestions) => state);
-
-  const dispatch = useDispatch();
 
   return (
     <>
-      <Questiontile
+      <QuestiontileLandingPage
+        className="Landingpagequestion-container"
         theme={theme}
         onClick={() => {
           showLoader("Loading questions");
@@ -66,12 +38,7 @@ const QuestionsComp = ({ title, icon, questions }: Props) => {
           }, 500);
         }}>
         <img
-          style={{
-            width: "60px",
-            height: "60px",
-            marginLeft: "10px",
-            marginRight: "10px",
-          }}
+          className="Landingpagequestion-icon"
           src={
             icon === "icon-html"
               ? html
@@ -83,11 +50,12 @@ const QuestionsComp = ({ title, icon, questions }: Props) => {
           }
         />
         <h1
-          className="h1-small"
-          style={{ color: `${theme} === "dark" ? "white" : ""` }}>
+          className={`h1-small Landingpagequestion-title-${
+            theme === "dark" ? "dark" : "light"
+          }`}>
           {title}
         </h1>
-      </Questiontile>
+      </QuestiontileLandingPage>
     </>
   );
 };

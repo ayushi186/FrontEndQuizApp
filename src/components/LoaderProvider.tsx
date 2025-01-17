@@ -1,16 +1,7 @@
 import React, { ReactNode, createContext, useState, useContext } from "react";
 import { ThemeContext } from "./ThemeToggleContext";
 import { LoaderWrapper } from "./StyledComp";
-
-type ILoaderContext = {
-  /* eslint-disable @typescript-eslint/no-unused-vars */
-  showLoader: (message?: string) => void;
-  hideLoader: () => void;
-};
-
-type LoaderContextProvider = {
-  children: ReactNode;
-};
+import { ILoader, ILoaderContext, LoaderContextProvider } from "../types/types";
 
 export const LoaderContext = createContext<ILoaderContext | undefined>(
   undefined
@@ -39,11 +30,6 @@ export const LoaderProvider: React.FC<LoaderContextProvider> = ({
       {children}
     </LoaderContext.Provider>
   );
-};
-
-type ILoader = {
-  message: string | undefined;
-  theme: string;
 };
 
 export const Loader: React.FC<ILoader> = ({ message, theme }) => {

@@ -1,11 +1,11 @@
 import React from "react";
-
 import { ContainerStyles, FillerStyles } from "./StyledComp";
-type Props = {
-  bgcolor: string;
-  completed: any;
-};
-const ProgressBar = ({ bgcolor, completed }: Props) => {
+import { IProgressBarProps } from "../types/types";
+
+const ProgressBar = ({
+  bgcolor,
+  completed,
+}: IProgressBarProps): React.ReactElement => {
   return (
     <ContainerStyles>
       <FillerStyles bgcolor={bgcolor} completed={completed}>

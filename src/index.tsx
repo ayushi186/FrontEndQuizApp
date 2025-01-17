@@ -4,13 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import QuestionComp from "./components/QuestionComp";
-import {
-  createHashRouter,
-  FutureConfig,
-  RouterProvider,
-} from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import { LoaderProvider } from "./components/LoaderProvider";
-
 import { store } from "./store";
 import { Provider } from "react-redux";
 import { ToggleProvider } from "./components/ThemeToggleContext";

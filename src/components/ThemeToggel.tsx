@@ -4,10 +4,9 @@ import sunlight from "../assets/images/icon-sun-light.svg";
 import sundark from "../assets/images/icon-sun-dark.svg";
 import moonlight from "../assets/images/icon-moon-light.svg";
 import moondark from "../assets/images/icon-moon-dark.svg";
-
 import Switch from "react-js-switch";
 
-export default function ThemeToggle() {
+export default function ThemeToggle(): React.ReactElement {
   const { theme, setTheme } = useContext(ThemeContext);
   const handleThemeToggle = () => {
     setTheme(theme === "light" ? "dark" : "light");

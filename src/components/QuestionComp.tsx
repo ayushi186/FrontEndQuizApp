@@ -1,8 +1,6 @@
 import React, { SyntheticEvent, useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import ResultComp from "./ResultComp";
-import styled from "styled-components";
-
 import { useDispatch } from "react-redux";
 import { trackwronglyansweredquestion } from "../store/wrongandrightAnsweredReducer";
 import A from "../assets/images/A.svg";
@@ -12,90 +10,11 @@ import html from "../assets/images/icon-html.svg";
 import css from "../assets/images/icon-css.svg";
 import js from "../assets/images/icon-js.svg";
 import acc from "../assets/images/icon-accessibility.svg";
-
 import { ThemeContext } from "./ThemeToggleContext";
 import { useLoader } from "../helpers/customhooks";
+import { Container, Options, Questiontile, SubmitButton } from "./StyledComp";
 
-export type Tquestions = {
-  question: string;
-  options: string[];
-  answer: string;
-};
-
-export const Container = styled.div<{
-  direction?: string;
-  theme: string;
-  comp?: string;
-}>`
-  height: 100vh;
-  // width: 93%;
-  width: 100%;
-  //width: ${(props) => (props.comp === "result" ? "100%" : "unset")};
-  display: flex;
-  flex-direction: ${(props) => props.direction};
-  background-position: center;
-  color: ${(props) => (props.theme === "light" ? `var(--darkNavy)` : "white")};
-  padding: ${(props) => (props.comp === "result" ? "0px" : "50px")};
-  padding: 0px;
-  padding-top: 80px;
-  //margin: auto;
-  justify-content: ${(props) =>
-    props.comp === "result" ? "space-evenly" : "unset"};
-`;
-
-const Questiontile = styled.div<{
-  borderColor?: string;
-  idx?: number;
-  theme: string;
-}>`
-  cursor: pointer;
-  color: ${(props) => (props.theme === "dark" ? "white" : "var(--darkNavy)")};
-  display: flex;
-  align-items: center;
-  flex: 1;
-  margin: 20px;
-  margin-top: 0px;
-  width: 564px;
-  height: 76px;
-  border: ${(props) =>
-    props.theme === "light" ? "white solid 2px" : "var(--navy) solid 2px"};
-  border-radius: 15px;
-
-  background-color: ${(props) =>
-    props.theme === "light" ? `var(--verylightblue)` : `var(--opnavy)`};
-  filter: ${(props) =>
-    props.theme === "dark" ? `drop-shadow(0px 6px #313e51)` : ""};
-`;
-
-export const SubmitButton = styled.button<{ bgColor: string; color: string }>`
-  margin: 20px;
-  width: 564px;
-  height: 66px;
-  border: white solid 2px;
-  border-radius: 15px;
-  background-color: ${(props) => props.bgColor};
-  color: ${(props) => props.color};
-  cursor: pointer;
-`;
-
-const Options = styled.div<{
-  borderColor?: string;
-  idx?: number;
-  theme: string;
-}>`
-  margin: 20px;
-  width: 35px;
-  height: 36px;
-  text-align: center;
-  border: white solid 2px;
-  border-radius: 10px;
-  background-color: ${(props) =>
-    props.theme === "light" ? `var(--verylightblue))` : `var(--navy)`};
-
-  color: ${(props) => (props.theme === "light" ? `var(--darkNavy)` : "white")};
-  cursor: pointer;
-`;
-const QuestionComp = () => {
+const QuestionComp: React.FC = () => {
   const dispatch = useDispatch();
   const { state } = useLocation();
   const { theme } = useContext(ThemeContext);
@@ -154,29 +73,14 @@ const QuestionComp = () => {
   if (counter !== reversecounter) {
     return (
       <>
-        <Container direction="column" theme={theme}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              position: "absolute",
-              top: "0px",
-              width: "80%",
-              justifyContent: "space-around",
-              paddingTop: "10px",
-            }}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                width: "40%",
-              }}>
+        <Container
+          direction="column"
+          theme={theme}
+          className="Question-Container">
+          <div className="Question-header">
+            <div className="Question-header--inner">
               <img
-                style={{
-                  width: "60px",
-                  height: "60px",
-                  marginRight: "10px",
-                }}
+                className="Question-header--img"
                 src={
                   icon === "icon-html"
                     ? html
@@ -187,33 +91,21 @@ const QuestionComp = () => {
                     : acc
                 }
               />
-              <h1 className="h1-small" style={{ width: "40%" }}>
-                {title}
-              </h1>
+              <h1 className="h1-small Question-header--title">{title}</h1>
             </div>
-            <div style={{ width: "40%" }}></div>
+            <div className="Question-header--title"></div>
           </div>
           {questions.map((i: any, idx: number) => {
             if (idx === counter) {
               return (
                 <>
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "100%",
-                      justifyContent: "space-around",
-                    }}
-                    key={idx}>
-                    <div
-                      style={{
-                        height: "75%",
-                        width: "40%",
-                      }}>
+                  <div className="Question-body" key={idx}>
+                    <div className="Question-body--inner">
                       <p className="body-smallItalic">
                         Question {counter !== 0 ? counter + 1 : 1} of{" "}
                         {questionCount}
                       </p>
-                      <h2 style={{ height: "80%" }} className="heading-medium">
+                      <h2 className="heading-medium Question-body--title">
                         {i.question}
                       </h2>
                       <ProgressBar
@@ -224,19 +116,13 @@ const QuestionComp = () => {
                     </div>
 
                     <div
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        height: "100%",
-                        width: "40%",
-
-                        color: theme === "dark" ? "white" : "",
-                      }}>
+                      className={`Question-body--options-${
+                        theme === "dark" ? "dark" : "light"
+                      }`}>
                       <ul
-                        style={{
-                          flex: 1,
-                          color: theme === "dark" ? "white" : "",
-                        }}>
+                        className={`Question-body--optionlist-${
+                          theme === "dark" ? "dark" : "light"
+                        }`}>
                         {i.options.map((o: string, idx: number) => {
                           const id = `${idx}_${o}`;
                           return (
@@ -253,7 +139,6 @@ const QuestionComp = () => {
                                 if (e.currentTarget.ariaDisabled === "false") {
                                   setDisabled(true);
                                   setCorrectAnswer("#A729F5");
-
                                   setIndex(id);
                                   setActualAnswers(i.answer);
                                   storeAnswer(e);

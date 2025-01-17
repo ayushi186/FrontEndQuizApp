@@ -1,54 +1,10 @@
 import React from "react";
-import styled from "styled-components";
 import quizzes from "../data.json";
-
 import QuestionsComp from "./QuestionsComp";
-
 import { useContext } from "react";
 import { ThemeContext } from "./ThemeToggleContext";
-
-const Outerwrapper = styled.div`
-  height: 400px;
-  width: 100%;
-  margin: auto;
-  display: flex;
-  padding-top: 100px;
-  justify-content: space-around;
-  //border: var(--green) solid 1px;
-`;
-
-const Equalinnerdiv = styled.div<{ theme: string; width?: string }>`
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  //flex: 1;
-  //width: 100%;
-  width: ${(props) => (props.width ? props.width : "40%")};
-  //border: var(--red) solid 1px;
-  text-align: left;
-  padding: 30px;
-  color: ${(props) => (props.theme === "dark" ? "white" : `var(--darkNavy)`)};
-`;
-
-const Unequalinnerdiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 0.5;
-  visibility: none;
-`;
-const HeaderText = styled.h1<{ theme: string }>``;
-
-type Tquestion = {
-  title: string;
-  icon: string;
-  questions: Array<Tquestions>;
-};
-
-type Tquestions = {
-  question: string;
-  options: string[];
-  answer: string;
-};
+import { Equalinnerdiv, HeaderText, Outerwrapper } from "./StyledComp";
+import { Tquestion } from "../types/types";
 
 export const LandingpageComp: React.FC = () => {
   const data: Array<Tquestion>[] = Object.values(quizzes);

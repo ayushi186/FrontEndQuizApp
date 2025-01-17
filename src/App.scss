@@ -1,6 +1,8 @@
-@import '../src/styles/_mixins.scss';
+@import "../src/styles/_mixins.scss";
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
-h1,ul, body {
+h1,
+ul,
+body {
   margin: 0;
   padding: 0;
 }
@@ -23,12 +25,16 @@ h1,ul, body {
   }
 }
 
-html, body, #app, #app>div {
+html,
+body,
+#app,
+#app > div {
   height: 100%;
 }
 
-[data-reactroot] 
-        {height: 100% !important; }
+[data-reactroot] {
+  height: 100% !important;
+}
 
 .App-header {
   background-color: #282c34;
@@ -54,33 +60,34 @@ html, body, #app, #app>div {
   }
 }
 
-h1{
+h1 {
   @include font-heading-large-bold-regular;
 }
-.h1-bold{
+.h1-bold {
   @include font-heading-large-bold-medium;
 }
-.h1-small{
+.h1-small {
   @include font-heading-small-medium;
 }
-.body-smallItalic{
+.body-smallItalic {
   @include font-body-samllItalic;
 }
-.heading-medium{
+.heading-medium {
   @include font-heading-medium-bold-medium;
 }
-.h1-medium2{
+.h1-medium2 {
   @include font-heading-small-medium2;
 }
 
 .h1-large-light {
-  @include font-heading-large-light;}
+  @include font-heading-large-light;
+}
 
-.body-reg{
+.body-reg {
   @include font-body-medium-regular;
 }
 
-.toogle{
+.toogle {
   display: flex;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -103,12 +110,11 @@ h1{
   align-items: center;
 }
 
-
 .spinner {
   width: 60px;
   height: 60px;
   border: 10px solid #ccc;
-  border-top: 10px solid #A729F5;
+  border-top: 10px solid #a729f5;
   border-radius: 50%;
   animation: spin 1.5s linear infinite;
 }
@@ -124,7 +130,124 @@ h1{
   margin-top: 10px;
   font-size: 22px;
   font-weight: 600;
-  color: #A729F5;
+  color: #a729f5;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.Question {
+  &-header {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    width: 80%;
+    justify-content: space-around;
+    padding-top: 10px;
+    &--inner {
+      display: flex;
+      align-items: center;
+      width: 40%;
+    }
+    &--img {
+      width: 60px;
+      height: 60px;
+      margin-right: 10px;
+    }
+    &--title {
+      width: 40%;
+    }
+  }
+  &-body {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    &--inner {
+      height: 75%;
+      width: 40%;
+    }
+    &--title {
+      height: 80%;
+    }
+    &--options {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 40%;
+      &-dark {
+        color: white;
+      }
+      &-light {
+        color: unset;
+      }
+    }
+    &--optionlist {
+      flex: 1;
+      &-dark {
+        color: white;
+      }
+      &-light {
+        color: unset;
+      }
+    }
+  }
+}
+
+.Landingpagequestion {
+  &-container {
+  }
+  &-icon {
+    width: 60px;
+    height: 60px;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  &-title {
+    &-dark {
+      color: white;
+    }
+    &-light {
+      color: unset;
+    }
+  }
+}
+
+.Result {
+  &-title {
+    display: flex;
+    align-items: left;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 10px;
+    padding-left: 50px;
+  }
+  &-icon {
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  &-content {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    &--inner {
+      display: flex;
+      align-items: center;
+    }
+    &-img {
+      width: 60px;
+      height: 60px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    &-title{
+      &-dark {
+        color: white;
+      }
+      &-light {
+        color: #626C7F;
+      }
+    }
+  }
+}

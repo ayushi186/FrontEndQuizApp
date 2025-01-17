@@ -1,4 +1,4 @@
-import { Tquestions } from "../components/QuestionComp";
+import { Tquestions } from "../types/types";
 
 export const ADD_CURRENT_SECTION_QUESTION = "section/addallQ";
 // Action Creators
