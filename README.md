@@ -1,6 +1,6 @@
 Thank You for cheking this fun Frontend Dev Quizz project which is taken from frontend mentors.
 
-The production webiste is as - ayushi186.github.io/FrontEndQuizApp/
+The production webiste is as - https://ayushi186.github.io/FrontEndQuizApp/
  <img src="https://github.com/ayushi186/FrontEndQuizApp/blob/master/ScreenRecording2025-01-17at8.19.40PM-ezgif.com-optimize.gif" width="100%" height="50%"/>
  
 The Project is a react app using typesscript template.
