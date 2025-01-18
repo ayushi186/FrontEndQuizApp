@@ -3,7 +3,7 @@ Thank You for cheking this fun Frontend Dev Quizz project which is taken from fr
 The production webiste is as - ayushi186.github.io/FrontEndQuizApp/
 
 ![Screen Recording 2025-01-17 at 8 19 40 PM](https://github.com/user-attachments/assets/7c390122-9ae6-422c-9baa-2f9a87fba2d4)
-
+ <img src="https://github.com/user-attachments/assets/7c390122-9ae6-422c-9baa-2f9a87fba2d4" width="100%" height="50%"/>
 The Project is a react app using typesscript template.
 it uses the below libraries in addition to React Js.
 
